@@ -50,6 +50,12 @@ plt.show()
 previsto = model.predict(dataset_doenca_pulmao[preditoras])
 erros = dataset_doenca_pulmao[alvo] - previsto
 
+for x, real, p, erro in zip(dataset_doenca_pulmao.Exposure,
+                            dataset_doenca_pulmao.PEFR,
+                            previsto,
+                            erros):
+    print(f"X: {x}  Valor real: {real}  Valor Previsto: {p}  Erro: {erro}")
+
 ## visualização gráfica dos erros
 ## dados do dataset
 ax = dataset_doenca_pulmao.plot.scatter(x='Exposure', y='PEFR')
